@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstateAI | Real Estate Price Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-building-columns"></i>
+                <span>EstateAI</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#predict">Predict</a></li>
+                <li><a href="#how-it-works">About</a></li>
+            </ul>
+            <button class="login-btn">Login</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Predict Property <br><span class="gradient-text">Prices Instantly</span></h1>
+            <p>AI-powered real estate valuation at your fingertips. Get precise market <br>estimates using the latest
+                machine learning models.</p>
+            <a href="#predict" class="cta-btn primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Prediction Section -->
+    <section id="predict" class="prediction-section">
+        <div class="prediction-card">
+            <form id="prediction-form" class="prediction-grid">
+                <div class="input-group">
+                    <label>LOCATION</label>
+                    <select id="city" required>
+                        <option value="" disabled selected>Select Location</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>SQUARE FEET</label>
+                    <input type="number" id="area" placeholder="e.g. 1200" required>
+                </div>
+                <div class="input-group">
+                    <label>BHK</label>
+                    <input type="number" id="bhk" placeholder="2" required>
+                </div>
+                <div class="input-group">
+                    <label>BATHROOMS</label>
+                    <input type="number" id="bath" placeholder="2">
+                </div>
+                <button type="submit" class="predict-btn full-width">Predict Price</button>
+            </form>
+
+            <div id="result-container" class="result-box hidden">
+                <p class="result-label">Estimated Price:</p>
+                <h2 id="predicted-price">₹ -- Lakhs</h2>
+                <p class="market-badge"><i class="fas fa-check-circle"></i> BASED ON CURRENT MARKET TRENDS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-microchip"></i></div>
+                <h3>AI Powered Prediction</h3>
+                <p>Our advanced neural networks analyze over 50 variables to give you the most accurate valuation
+                    possible.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-database"></i></div>
+                <h3>Real Market Data</h3>
+                <p>Aggregated from thousands of live listings and historical sales records for unmatched precision.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                <h3>Instant Results</h3>
+                <p>No more waiting for appraisers. Get your property report in under 5 seconds with zero paperwork.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How it Works</h2>
+        <p class="subtitle">Our advanced AI models analyze thousands of data points to give you the most accurate
+            valuation in three simple steps.</p>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-icon"><i class="fas fa-edit"></i></div>
+                <h4>1. Enter Details</h4>
+                <p>Provide basic property information like location, size, and configuration in our simple interface.
+                </p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon"><i class="fas fa-project-diagram"></i></div>
+                <h4>2. AI Analysis</h4>
+                <p>Our neural networks process market trends, historical data, and local amenities for deep insights.
+                </p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>3. Instant Valuation</h4>
+                <p>Get a precise price estimate and market insights in seconds with zero human intervention.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Trends -->
+    <section class="market-trends">
+        <div class="trends-header">
+            <div>
+                <h2>Market Price Trends</h2>
+                <p>Historical performance of premium assets (2020 - 2024)</p>
+            </div>
+            <div class="trends-buttons">
+                <button class="active">1 YEAR</button>
+                <button>5 YEARS</button>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="trendsChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <p class="subtitle">Join thousands of satisfied users who have successfully navigated the real estate market
+            with our AI-driven insights.</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"The prediction accuracy is mind-blowing. It helped me negotiate a better deal for my first apartment
+                    in Mumbai."</p>
+                <div class="user-info">
+                    <div class="avatar">RK</div>
+                    <div>
+                        <strong>Rahul Kapoor</strong>
+                        <span>Home Buyer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"An essential tool for any real estate professional. The instant reports save us hours of manual
+                    appraisal work."</p>
+                <div class="user-info">
+                    <div class="avatar">SM</div>
+                    <div>
+                        <strong>Sarah Mehta</strong>
+                        <span>Real Estate Investor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Clean UI and extremely fast results. EstateAI provides transparency that was previously missing in
+                    the market."</p>
+                <div class="user-info">
+                    <div class="avatar">AV</div>
+                    <div>
+                        <strong>Ankit Verma</strong>
+                        <span>Property Agent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-logo">
+            <i class="fas fa-building-columns"></i>
+            <span>EstateAI</span>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2026 ESTATEAI | BUILT BY KUNALLL18</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
